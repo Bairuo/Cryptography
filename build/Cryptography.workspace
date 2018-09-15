@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_workspace_file>
+	<Workspace title="Cryptography">
+		<Project filename="projects/Cryptography.cbp" />
+		<Project filename="projects/HexaGenerator.cbp" />
+		<Project filename="projects/PBoxGenerator.cbp" />
+		<Project filename="projects/RSAGenerator.cbp" />
+		<Project filename="projects/SPN-CBC.cbp" />
+		<Project filename="projects/FileGenerator.cbp" />
+	</Workspace>
+</CodeBlocks_workspace_file>

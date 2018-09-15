@@ -1,0 +1,108 @@
+# depslib dependency file v1.0
+1536912268 source:d:\jzr\cryptography\src\base\format.cpp
+	"format.h"
+
+1536912364 d:\jzr\cryptography\src\base\format.h
+	<string>
+	<sstream>
+	<iostream>
+	<bitset>
+	<stdlib.h>
+
+1536929441 source:d:\jzr\cryptography\src\base\stringhandle.cpp
+	"StringHandle.h"
+
+1536929422 d:\jzr\cryptography\src\base\stringhandle.h
+	<string>
+
+1536929474 source:d:\jzr\cryptography\src\cryptography\anautilities.cpp
+	"AnaUtilities.h"
+	"../base/format.h"
+	"../base/StringHandle.h"
+	"spn.h"
+	<regex>
+	<vector>
+	<fstream>
+	<sstream>
+	<bitset>
+	<cmath>
+	<cstdlib>
+
+1536284681 d:\jzr\cryptography\src\cryptography\anautilities.h
+	<string>
+
+1536967871 d:\jzr\cryptography\src\cryptography\spn.h
+	<string>
+	<vector>
+	<map>
+	<bitset>
+	"SBox.h"
+	"PBox.h"
+
+1536229454 d:\jzr\cryptography\src\cryptography\sbox.h
+	"Box.h"
+	<map>
+
+1535948299 d:\jzr\cryptography\src\cryptography\box.h
+	<string>
+
+1536912569 d:\jzr\cryptography\src\cryptography\pbox.h
+	<vector>
+	<map>
+	<bitset>
+	<iostream>
+
+1535862483 source:d:\jzr\cryptography\src\cryptography\crautilities.cpp
+
+1536932741 source:d:\jzr\cryptography\src\cryptography\decutilities.cpp
+	"DecUtilities.h"
+	"../base/format.h"
+	"../base/StringHandle.h"
+	"spn.h"
+	"rsa.h"
+	<iostream>
+	<fstream>
+	<regex>
+
+1536224130 d:\jzr\cryptography\src\cryptography\decutilities.h
+	<string>
+
+1536967698 d:\jzr\cryptography\src\cryptography\rsa.h
+	<string>
+
+1536932763 source:d:\jzr\cryptography\src\cryptography\encutilities.cpp
+	"EncUtilities.h"
+	"../base/format.h"
+	"../base/StringHandle.h"
+	"spn.h"
+	"rsa.h"
+	<iostream>
+	<fstream>
+	<regex>
+
+1535866542 d:\jzr\cryptography\src\cryptography\encutilities.h
+	<string>
+
+1536907812 source:d:\jzr\cryptography\src\cryptography\main.cpp
+	<iostream>
+	<fstream>
+	<sstream>
+	"EncUtilities.h"
+	"DecUtilities.h"
+	"AnaUtilities.h"
+	"CraUtilities.h"
+
+1535865848 d:\jzr\cryptography\src\cryptography\crautilities.h
+
+1536912632 source:d:\jzr\cryptography\src\cryptography\pbox.cpp
+	"PBox.h"
+	<fstream>
+
+1535856728 source:d:\jzr\cryptography\src\cryptography\pgp.cpp
+
+1536912314 source:d:\jzr\cryptography\src\cryptography\sbox.cpp
+	"SBox.h"
+	"../base/format.h"
+	<fstream>
+	<bitset>
+

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="Cryptography" />
+		<Option execution_dir="D:/jzr/Cryptography/" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="../../bin/Debug/Cryptography" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="../../bin/Debug/" />
+				<Option object_output="../../obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-std=c++11" />
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="../../bin/Release/Cryptography" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="../../bin/Release/" />
+				<Option object_output="../../obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add option="-std=c++11" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+		</Compiler>
+		<Unit filename="../../src/base/StringHandle.cpp" />
+		<Unit filename="../../src/base/StringHandle.h" />
+		<Unit filename="../../src/base/format.cpp" />
+		<Unit filename="../../src/base/format.h" />
+		<Unit filename="../../src/cryptography/AnaUtilities.cpp" />
+		<Unit filename="../../src/cryptography/AnaUtilities.h" />
+		<Unit filename="../../src/cryptography/Box.h" />
+		<Unit filename="../../src/cryptography/CraUtilities.cpp" />
+		<Unit filename="../../src/cryptography/CraUtilities.h" />
+		<Unit filename="../../src/cryptography/DecUtilities.cpp" />
+		<Unit filename="../../src/cryptography/DecUtilities.h" />
+		<Unit filename="../../src/cryptography/EncUtilities.cpp" />
+		<Unit filename="../../src/cryptography/EncUtilities.h" />
+		<Unit filename="../../src/cryptography/PBox.cpp" />
+		<Unit filename="../../src/cryptography/PBox.h" />
+		<Unit filename="../../src/cryptography/SBox.cpp" />
+		<Unit filename="../../src/cryptography/SBox.h" />
+		<Unit filename="../../src/cryptography/main.cpp" />
+		<Unit filename="../../src/cryptography/pgp.cpp" />
+		<Unit filename="../../src/cryptography/pgp.h" />
+		<Unit filename="../../src/cryptography/rsa.cpp" />
+		<Unit filename="../../src/cryptography/rsa.h" />
+		<Unit filename="../../src/cryptography/spn.cpp" />
+		<Unit filename="../../src/cryptography/spn.h" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

@@ -1,0 +1,13 @@
+
+Parameter list
+---------------------------
+      -m specifled string
+      -p specifled file path
+
+      -spn use spn
+      -rsa use rsa
+      -cipher set cipher
+      -sbox set s-box of spn
+      -pbox set p-box of spn
+---------------------------
+Use help -a to see more

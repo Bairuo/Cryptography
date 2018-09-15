@@ -1,0 +1,5 @@
+Use generator command like
+[Gg]en -l=1024 -p"PBOX.txt"
+
+Default parameter p"PBOX.txt"
+[Gg]en -l=16

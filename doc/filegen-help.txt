@@ -1,0 +1,9 @@
+Use generator command like
+[Gg]en -l=1024 -n=5 -p"output1.txt"
+[Gg]en -l=16 -n=8000 -p"output2.txt"
+
+Default parameter n = 1
+[Gg]en -l=16 -p"output3.txt"
+
+Default parameter p"output.txt"
+[Gg]en -l=16

@@ -1,0 +1,12 @@
+This tool can generator a RSA folder
+which can used by Cryptography Tool
+Files include
+RSA	--generated folder
+    public.txt	--public key
+    private.txt	--private key
+
+Use generator command like
+[Gg]en  -d"RSA"
+
+Default parameter d"RSA"
+[Gg]en
