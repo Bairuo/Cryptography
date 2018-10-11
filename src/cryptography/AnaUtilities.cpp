@@ -9,10 +9,12 @@
 #include<bitset>
 #include<cmath>
 #include<cstdlib>
+#include<time.h>
+#define TIMETEST
 
 using namespace std;
 
-void Analysis(string command)
+void Analysis(const string &command)
 {
     regex spnDic_regex("-spn-d\".*?\"");
     regex plainPath_regex("-p\".*?\"");
@@ -121,59 +123,12 @@ void Analysis(string command)
     }
 }
 
-// Forget it, the design of this class is not designed to expand.
-//void SPNLinAnalysis(string spnDic, string plainPath, string cipherPath, int num)
-//{
-//    vector<int>x;
-//    vector<int>y;
-//    vector<int>u;
-//
-//    SPN::Load(spnDic);
-//
-//    string lineString;
-//    stringstream stringStream;
-//    ifstream fileStream;
-//
-//    fileStream.open(spnDic + "lin.txt");
-//    if(!fileStream.is_open())
-//    {
-//        cout << "Lin analysis configure file can not open" << endl;
-//        cout << "This SPN Cipher constitution does not support analysis" << endl;
-//        return;
-//    }
-//
-//    int temp;
-//    /****** x read ******/
-//    getline(fileStream, lineString);
-//    stringStream << lineString;
-//    while(stringStream >> temp)
-//    {
-//        x.push_back(temp);
-//    }
-//
-//    /****** y read ******/
-//    getline(fileStream, lineString);
-//    stringStream << lineString;
-//    while(stringStream >> temp)
-//    {
-//        y.push_back(temp);
-//    }
-//
-//    /****** u read ******/
-//    getline(fileStream, lineString);
-//    stringStream << lineString;
-//    while(stringStream >> temp)
-//    {
-//        u.push_back(temp);
-//    }
-//
-//
-//}
-
-
-// Process oriented
-void SPNLinAnalysis(string spnDic, string plainPath, string cipherPath, int num)
+void SPNLinAnalysis(const string &spnDic, const string &plainPath, const string &cipherPath, int num)
 {
+    //vector<string> plaingroup;
+    //vector<string> ciphergroup;
+    vector<bitset<16> > plaingroup;
+    vector<bitset<16> > ciphergroup;
     int Count[16][16];
 
     memset(Count, 0, sizeof(Count));
@@ -208,7 +163,7 @@ void SPNLinAnalysis(string spnDic, string plainPath, string cipherPath, int num)
     float progress = 0;
     float lastProgress = -1;
 
-    for(int n = 0; n < num; n++)
+    for(int i = 0; i < num; i++)
     {
         string plaintext;
         string ciphertext;
@@ -218,6 +173,24 @@ void SPNLinAnalysis(string spnDic, string plainPath, string cipherPath, int num)
 
         x = bitset<16>(bairuo::HexaToBinaryString(plaintext));
         y = bitset<16>(bairuo::HexaToBinaryString(ciphertext));
+
+        plaingroup.push_back(x);
+        ciphergroup.push_back(y);
+    }
+
+    plainsfile.close();
+    cipherfile.close();
+
+#ifdef TIMETEST
+    clock_t startClock, endClock;
+    int timecounter;
+    startClock = clock();
+#endif // TIMETEST
+
+    for(int n = 0; n < num; n++)
+    {
+        x = plaingroup[n];
+        y = ciphergroup[n];
 
         progress = 1.0f * n / num * 100;
         if(progress - lastProgress > 1.5f)
@@ -251,9 +224,6 @@ void SPNLinAnalysis(string spnDic, string plainPath, string cipherPath, int num)
         }
     }
 
-    plainsfile.close();
-    cipherfile.close();
-
     int maxCount = -1;
     int maxi, maxj;
 
@@ -280,12 +250,23 @@ void SPNLinAnalysis(string spnDic, string plainPath, string cipherPath, int num)
 
     cout << "Binary: " << maxkey1 << endl;
     cout << "Hexa:   " << maxkey2 << endl;
+
+#ifdef TIMETEST
+    endClock = clock();
+    timecounter = endClock - startClock;
+#if defined(_WIN32)
+    std::cout << "Lin Analysis: " << timecounter << "ms" << std::endl;
+#else
+    std::cout << "Lin Analysis: " << timecounter / 1000 << "ms" << std::endl;
+#endif // defined
+#endif // TIMETEST
+
 }
 
-void SPNDifAnalysis(string spnDic, string plainPath, string cipherPath, int num)
+void SPNDifAnalysis(const string &spnDic, const string &plainPath, const string &cipherPath, int num)
 {
-    vector<string> plaingroup;
-    vector<string> ciphergroup;
+    vector<bitset<16> > plaingroup;
+    vector<bitset<16> > ciphergroup;
     int Count[16][16];
 
     memset(Count, 0, sizeof(Count));
@@ -335,25 +316,33 @@ void SPNDifAnalysis(string spnDic, string plainPath, string cipherPath, int num)
         getline(plainsfile, plaintext);
         getline(cipherfile, ciphertext);
 
-        plaingroup.push_back(plaintext);
-        ciphergroup.push_back(ciphertext);
+        x1 = bitset<16>(bairuo::HexaToBinaryString(plaintext));
+        y1 = bitset<16>(bairuo::HexaToBinaryString(ciphertext));
+
+        plaingroup.push_back(x1);
+        ciphergroup.push_back(y1);
     }
 
     plainsfile.close();
     cipherfile.close();
 
+#ifdef TIMETEST
+    clock_t startClock, endClock;
+    int timecounter;
+    startClock = clock();
+#endif // TIMETEST
+
     for(int n = 0; n < num; n++)
     {
-        string ciphertext1;
+        //string ciphertext1;
         string ciphertext2;
 
-        ciphertext1 = ciphergroup[n];
-        y1 = bitset<16>(bairuo::HexaToBinaryString(ciphertext1));
+        y1 = ciphergroup[n];
         y11 = bairuo::SubBit<4, 16>(y1, 0, 4);
         y21 = bairuo::SubBit<4, 16>(y1, 8, 4);
 
-        string plaintext1 = plaingroup[n];
-        x1 = bitset<16>(bairuo::HexaToBinaryString(plaintext1));
+        //string plaintext1 = plaingroup[n];
+        x1 = plaingroup[n];
         x2 = x1 ^ dif;
 
         ciphertext2 = SPN::Encrypt(bairuo::BinaryToHexaString(x2.to_string()));
@@ -425,4 +414,14 @@ void SPNDifAnalysis(string spnDic, string plainPath, string cipherPath, int num)
 
     cout << "Binary: " << maxkey1 << endl;
     cout << "Hexa:   " << maxkey2 << endl;
+
+#ifdef TIMETEST
+    endClock = clock();
+    timecounter = endClock - startClock;
+#if defined(_WIN32)
+    std::cout << "Dif Analysis: " << timecounter << "ms" << std::endl;
+#else
+    std::cout << "Dif Analysis: " << timecounter / 1000 << "ms" << std::endl;
+#endif // defined
+#endif // TIMETEST
 }

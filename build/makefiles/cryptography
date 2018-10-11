@@ -1,0 +1,49 @@
+target = debug
+
+ifeq ($(target), debug)
+flags = -Wall -std=c++11 -I../../src/openssl/include
+prom1 = ../../bin/Debug/Cryptography
+else ifeq ($(target), release)
+flags = -Wall -std=c++11 -I../../src/openssl/include
+prom1 = ../../bin/Release/Cryptography
+endif
+
+sharedeps = $(shell find ../../src/base/ -name "*.h")
+sharesrc = $(shell find ../../src/base/ -name "*.cpp")
+
+ifeq ($(target), debug)
+shareobj = $(sharesrc:../../src/base/%.cpp=../../obj/Debug/src/base/%.o)
+else
+shareobj = $(sharesrc:../../src/base/%.cpp=../../obj/Release/src/base/%.o)
+endif
+
+deps1 = $(shell find ../../src/cryptography/ -name "*.h")
+src1 = $(shell find ../../src/cryptography/ -name "*.cpp")
+
+ifeq ($(target), debug)
+obj1 = $(src1:../../src/cryptography/%.cpp=../../obj/Debug/src/cryptography/%.o)
+else
+obj1 = $(src1:../../src/cryptography/%.cpp=../../obj/Release/src/cryptography/%.o)
+endif
+
+$(prom1): $(obj1) $(shareobj)
+	g++ -o $(prom1) $(obj1) $(shareobj) ../../lib/libcrypto.a ../../lib/libssl.a -ldl
+
+../../obj/Debug/src/base/%.o: ../../src/base/%.cpp $(sharedeps)
+	$(shell mkdir -p ../../obj/Debug/src/base)
+	g++ $(flags) -c $< -o $@
+
+../../obj/Debug/src/cryptography/%.o: ../../src/cryptography/%.cpp $(deps1)
+	$(shell mkdir -p ../../obj/Debug/src/cryptography)
+	g++ $(flags) -c $< -o $@
+
+../../obj/Release/src/base/%.o: ../../src/base/%.cpp $(sharedeps)
+	$(shell mkdir -p ../../obj/Release/src/base)
+	g++ $(flags) -c $< -o $@
+
+../../obj/Release/src/cryptography/%.o: ../../src/cryptography/%.cpp $(deps1)
+	$(shell mkdir -p ../../obj/Release/src/cryptography)
+	g++ $(flags) -c $< -o $@
+
+clean:
+	rm -rf $(shareobj) $(obj1) $(prom1)

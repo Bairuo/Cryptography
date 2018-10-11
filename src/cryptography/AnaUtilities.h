@@ -6,8 +6,8 @@
 
 #include<string>
 
-void Analysis(std::string command);
-void SPNLinAnalysis(std::string spnPath, std::string plainPath, std::string cipherPath, int num);
-void SPNDifAnalysis(std::string spnPath, std::string plainPath, std::string cipherPath, int num);
+void Analysis(const std::string &command);
+void SPNLinAnalysis(const std::string &spnPath, const std::string &plainPath, const std::string &cipherPath, int num);
+void SPNDifAnalysis(const std::string &spnPath, const std::string &plainPath, const std::string &cipherPath, int num);
 
 #endif // AnaUtilities_H_

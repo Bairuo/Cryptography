@@ -1,13 +1,22 @@
+A cryptographic demonstration tool for Cryptography Theory and Practice
 
-Parameter list
----------------------------
-      -m specifled string
-      -p specifled file path
-
+Parameter:
+      -m specified plaintext or ciphertext
+      -i specified input file path
+      -o specified output file path
       -spn use spn
       -rsa use rsa
-      -cipher set cipher
-      -sbox set s-box of spn
-      -pbox set p-box of spn
----------------------------
-Use help -a to see more
+      -spn-d specified SPN Cryptosystem
+      -n specified time of encryption or decryption(default n=1)
+      --show specified if show the result(default show=true)
+      --detail display the details
+
+For example:
+enc -m"26B7" -spn
+dec -m"BCD6" -spn
+enc -i"plaintext-128.txt" -spn-d"SPN-128"
+
+In particular, for analysis, you will use commands like:
+ana -p"plaingroup-8000.txt" -c"ciphergroup-8000.txt" -n=8000 -lin
+ana -p"plaingroup-3000.txt" -c"ciphergroup-3000.txt" -n=3000 -dif
+

@@ -11,7 +11,7 @@
 #include"SBox.h"
 #include"PBox.h"
 
-#define MAXBLOCKLENGTH 1024
+#define MAXBLOCKLENGTH 128
 
 class SPN
 {

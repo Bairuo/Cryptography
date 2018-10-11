@@ -185,3 +185,97 @@
 	"../base/StringHandle.h"
 	"../base/format.h"
 
+1536912268 source:d:\jzr\cryptography-dev\src\base\format.cpp
+	"format.h"
+
+1536912364 d:\jzr\cryptography-dev\src\base\format.h
+	<string>
+	<sstream>
+	<iostream>
+	<bitset>
+	<stdlib.h>
+
+1536929441 source:d:\jzr\cryptography-dev\src\base\stringhandle.cpp
+	"StringHandle.h"
+
+1536929422 d:\jzr\cryptography-dev\src\base\stringhandle.h
+	<string>
+
+1539078392 source:d:\jzr\cryptography-dev\src\rsagenerator\genutilities.cpp
+	"GenUtilities.h"
+	<iostream>
+	<fstream>
+	<regex>
+	<stdlib.h>
+	<openssl/bn.h>
+	"../base/bignum.h"
+	"../base/StringHandle.h"
+	"../base/format.h"
+
+1536730937 d:\jzr\cryptography-dev\src\rsagenerator\genutilities.h
+	<string>
+
+1536777240 d:\jzr\cryptography-dev\src\openssl\include\openssl\bn.h
+	<openssl/e_os2.h>
+	<stdio.h>
+	<openssl/opensslconf.h>
+	<openssl/ossl_typ.h>
+	<openssl/crypto.h>
+
+1534212226 d:\jzr\cryptography-dev\src\openssl\include\openssl\e_os2.h
+	<openssl/opensslconf.h>
+	<inttypes.h>
+	<stdint.h>
+
+1534212226 d:\jzr\cryptography-dev\src\openssl\include\openssl\opensslconf.h
+
+1539079225 d:\jzr\cryptography-dev\src\openssl\include\openssl\ossl_typ.h
+	<limits.h>
+	<openssl/e_os2.h>
+
+1534212226 d:\jzr\cryptography-dev\src\openssl\include\openssl\crypto.h
+	<stdlib.h>
+	<time.h>
+	<openssl/e_os2.h>
+	<stdio.h>
+	<openssl/stack.h>
+	<openssl/safestack.h>
+	<openssl/opensslv.h>
+	<openssl/ossl_typ.h>
+	<openssl/opensslconf.h>
+	<openssl/ebcdic.h>
+	<openssl/symhacks.h>
+	<openssl/opensslv.h>
+	<pthread.h>
+
+1534212226 d:\jzr\cryptography-dev\src\openssl\include\openssl\stack.h
+
+1534212226 d:\jzr\cryptography-dev\src\openssl\include\openssl\safestack.h
+	<openssl/stack.h>
+	<openssl/e_os2.h>
+
+1534212226 d:\jzr\cryptography-dev\src\openssl\include\openssl\opensslv.h
+
+1534212226 d:\jzr\cryptography-dev\src\openssl\include\openssl\ebcdic.h
+	<stdlib.h>
+
+1534212226 d:\jzr\cryptography-dev\src\openssl\include\openssl\symhacks.h
+	<openssl/e_os2.h>
+
+1539089064 d:\jzr\cryptography-dev\src\base\bignum.h
+	<openssl/bn.h>
+
+1536909033 source:d:\jzr\cryptography-dev\src\rsagenerator\main.cpp
+	<iostream>
+	<fstream>
+	<sstream>
+	<stdlib.h>
+	<time.h>
+	"GenUtilities.h"
+
+1539058786 source:d:\jzr\cryptography-dev\src\base\bignum.cpp
+	"bignum.h"
+	"format.h"
+	<string>
+	<iostream>
+

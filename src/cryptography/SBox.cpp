@@ -37,7 +37,7 @@ void SBox::Load(const string &path)
     loadFile.close();
 }
 
-string SBox::OutPut(string input)   // binary string input
+string SBox::OutPut(const string &input)   // binary string input
 {
     bitset<MAXSBOXLENGTH> sub(input);
     bitset<MAXSBOXLENGTH> ans;
@@ -49,7 +49,7 @@ string SBox::OutPut(string input)   // binary string input
     return bairuo::LowBinaryString<MAXSBOXLENGTH>(ans, input.length());
 }
 
-string SBox::InverseOutput(string input)
+string SBox::InverseOutput(const string &input)
 {
     bitset<MAXSBOXLENGTH> sub(input);
     bitset<MAXSBOXLENGTH> ans;

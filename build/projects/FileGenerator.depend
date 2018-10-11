@@ -35,3 +35,39 @@
 	"../base/format.h"
 	"../base/StringHandle.h"
 
+1536912268 source:d:\jzr\cryptography-dev\src\base\format.cpp
+	"format.h"
+
+1536912364 d:\jzr\cryptography-dev\src\base\format.h
+	<string>
+	<sstream>
+	<iostream>
+	<bitset>
+	<stdlib.h>
+
+1536929441 source:d:\jzr\cryptography-dev\src\base\stringhandle.cpp
+	"StringHandle.h"
+
+1536929422 d:\jzr\cryptography-dev\src\base\stringhandle.h
+	<string>
+
+1536929808 source:d:\jzr\cryptography-dev\src\filegenerator\genutilities.cpp
+	"GenUtilities.h"
+	<iostream>
+	<fstream>
+	<regex>
+	<stdlib.h>
+	"../base/format.h"
+	"../base/StringHandle.h"
+
+1536730917 d:\jzr\cryptography-dev\src\filegenerator\genutilities.h
+	<string>
+
+1536909085 source:d:\jzr\cryptography-dev\src\filegenerator\main.cpp
+	<iostream>
+	<fstream>
+	<sstream>
+	<stdlib.h>
+	<time.h>
+	"GenUtilities.h"
+

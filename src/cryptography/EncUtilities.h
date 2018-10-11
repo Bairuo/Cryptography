@@ -6,7 +6,7 @@
 
 #include<string>
 
-void Encrypt(std::string command);
+void Encrypt(const std::string &command);
 
 
 #endif // EncUtilities_H_

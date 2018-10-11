@@ -10,7 +10,7 @@ class Box
 {
 public:
     virtual void Load(const std::string &path){}
-    virtual std::string OutPut(std::string input) = 0;
+    virtual std::string OutPut(const std::string &input) = 0;
 };
 
 

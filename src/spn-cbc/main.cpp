@@ -6,9 +6,9 @@
 using namespace std;
 
 #if defined(_WIN32)
-static const string helpFilePath = "..\\..\\doc\\help.txt";
+static const string helpFilePath = "..\\..\\doc\\cbc-help.txt";
 #else
-static const string helpFilePath = "../../doc/help.txt";
+static const string helpFilePath = "../../doc/cbc-help.txt";
 #endif
 
 

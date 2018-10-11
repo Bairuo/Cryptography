@@ -1,1 +1,67 @@
 # depslib dependency file v1.0
+1536912268 source:d:\jzr\cryptography-dev\src\base\format.cpp
+	"format.h"
+
+1536912364 d:\jzr\cryptography-dev\src\base\format.h
+	<string>
+	<sstream>
+	<iostream>
+	<bitset>
+	<stdlib.h>
+
+1536912632 source:d:\jzr\cryptography-dev\src\cryptography\pbox.cpp
+	"PBox.h"
+	<fstream>
+
+1536912569 d:\jzr\cryptography-dev\src\cryptography\pbox.h
+	<vector>
+	<map>
+	<bitset>
+	<iostream>
+
+1539227749 source:d:\jzr\cryptography-dev\src\cryptography\sbox.cpp
+	"SBox.h"
+	"../base/format.h"
+	<fstream>
+	<bitset>
+
+1539227749 d:\jzr\cryptography-dev\src\cryptography\sbox.h
+	"Box.h"
+	<map>
+
+1539227749 d:\jzr\cryptography-dev\src\cryptography\box.h
+	<string>
+
+1539060115 source:d:\jzr\cryptography-dev\src\cryptography\spn.cpp
+	"spn.h"
+	"../base/format.h"
+	<fstream>
+	<iostream>
+
+1539227749 d:\jzr\cryptography-dev\src\cryptography\spn.h
+	<string>
+	<vector>
+	<map>
+	<bitset>
+	"SBox.h"
+	"PBox.h"
+
+1536932814 source:d:\jzr\cryptography-dev\src\spn-cbc\encutilities.cpp
+	"EncUtilities.h"
+	"../base/format.h"
+	"../cryptography/spn.h"
+	<iostream>
+	<fstream>
+	<regex>
+	<bitset>
+
+1536655429 d:\jzr\cryptography-dev\src\spn-cbc\encutilities.h
+	<string>
+	<fstream>
+
+1536909055 source:d:\jzr\cryptography-dev\src\spn-cbc\main.cpp
+	<iostream>
+	<fstream>
+	<sstream>
+	"EncUtilities.h"
+

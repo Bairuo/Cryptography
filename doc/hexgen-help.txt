@@ -1,3 +1,5 @@
+This tool can help generate a random hexa
+text sequence of specified length.
 Use generator command like
 [Gg]en -l=1024 -n=5 -p"output1.txt"
 [Gg]en -l=16 -n=8000 -p"output2.txt"

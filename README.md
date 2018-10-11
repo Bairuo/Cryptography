@@ -21,17 +21,19 @@ Hexa of ciphertext: F7569EF00940764C6D6F9C0BBF366F10
 
 For windows, build/Cryptography.workspace can build whole workspace
 
-For _RSAGenerator_ build on linux:
+For _Cryptography_ and _RSAGenerator_ build on linux:
 
 
 ```
 cd build/makefiles
+make -f cryptography
 make -f rsagenerator
 ```
 
 or
 
 ```
+make -f cryptography target=release
 make -f rsagenerator target=release
 ```
 
@@ -44,6 +46,8 @@ make -f rsagenerator target=release
 * SPN-strengthen
 * SPN-CBC binary file encryption
 * RSA Parameters Generate
-* Square-and-Multiply
+* RSA Encryption And Decryption
+* (Math)Square-and-Multiply
+* (Math)Mont-Power-Mode
 
 ![Screenshot](https://github.com/Bairuo/Cryptography-dev/raw/master/meta/pic.png)

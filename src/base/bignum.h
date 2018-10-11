@@ -8,8 +8,13 @@
 
 #define MAXBYTES 2048
 
+#define TIMETEST
+
 namespace bairuo
 {
+#if defined(_WIN32)
+    BIGNUM* MontModExp(const BIGNUM *a, const BIGNUM *b, const BIGNUM *n);
+#endif // defined
     BIGNUM* ModExp(const BIGNUM *a, const BIGNUM *b, const BIGNUM *n);
     bool MillerRabin(const BIGNUM *n);
     bool IsPrime(const BIGNUM *num);

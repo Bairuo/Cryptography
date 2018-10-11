@@ -14,7 +14,7 @@ void GenerateFile(string command)
     regex path_regex("-p\".*\"");
 
     int length = -1;
-    string path = "output.txt";
+    string path = "file.data";
 
     smatch reg_smatch;
     sregex_iterator reg_it;
@@ -53,9 +53,6 @@ void GenerateFile(string command)
     {
         path = reg_smatch.str().substr(3, reg_smatch.str().length() - 4);
     }
-
-    string genString;
-    genString.resize(length / 4);
 
     ofstream outputFile;
     outputFile.open(path);

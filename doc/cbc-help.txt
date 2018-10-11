@@ -1,0 +1,6 @@
+This tool can help you encrypt binary files.
+
+Just use like this
+enc -i"plaintext.txt" -o"ciphertext.txt" -spn-d"RSA-128" 
+
+RSA-128 is your Cryptosystem.

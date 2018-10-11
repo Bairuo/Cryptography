@@ -16,7 +16,12 @@
 				<Compiler>
 					<Add option="-std=c++11" />
 					<Add option="-g" />
+					<Add directory="../../src/openssl/include" />
 				</Compiler>
+				<Linker>
+					<Add library="../../lib/libcrypto.lib" />
+					<Add library="../../lib/libssl.lib" />
+				</Linker>
 			</Target>
 			<Target title="Release">
 				<Option output="../../bin/Release/Cryptography" prefix_auto="1" extension_auto="1" />
@@ -27,9 +32,12 @@
 				<Compiler>
 					<Add option="-O2" />
 					<Add option="-std=c++11" />
+					<Add directory="../../src/openssl/include" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
+					<Add library="../../lib/libcrypto.lib" />
+					<Add library="../../lib/libssl.lib" />
 				</Linker>
 			</Target>
 		</Build>
@@ -38,6 +46,8 @@
 		</Compiler>
 		<Unit filename="../../src/base/StringHandle.cpp" />
 		<Unit filename="../../src/base/StringHandle.h" />
+		<Unit filename="../../src/base/bignum.cpp" />
+		<Unit filename="../../src/base/bignum.h" />
 		<Unit filename="../../src/base/format.cpp" />
 		<Unit filename="../../src/base/format.h" />
 		<Unit filename="../../src/cryptography/AnaUtilities.cpp" />

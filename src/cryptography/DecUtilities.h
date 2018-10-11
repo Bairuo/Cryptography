@@ -6,7 +6,7 @@
 
 #include<string>
 
-void Decrypt(std::string command);
+void Decrypt(const std::string &command);
 
 
 #endif // DecUtilities_H_

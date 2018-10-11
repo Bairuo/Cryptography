@@ -1,5 +1,5 @@
-This tool can generator a RSA folder
-which can used by Cryptography Tool
+This tool can help generate a RSA folder
+which can be used by Cryptography Tool.
 Files include
 RSA	--generated folder
     public.txt	--public key

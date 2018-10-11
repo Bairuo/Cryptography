@@ -1,9 +1,53 @@
 #include "bignum.h"
 #include "format.h"
 #include <string>
+#include <iostream>
 
 namespace bairuo
 {
+#if defined(_WIN32)
+BIGNUM* MontModExp(const BIGNUM *a, const BIGNUM *b, const BIGNUM *n)
+{
+    BN_CTX *ctx = BN_CTX_new();
+    BIGNUM *_a = BN_new();
+    BIGNUM *_b = BN_new();
+    BIGNUM *zero = BN_new();
+    BIGNUM *ans = BN_new();
+    BN_copy(_a, a);
+    BN_copy(_b, b);
+
+#ifdef FUNCTIONTIMETEST
+    clock_t startClock, endClock;
+    startClock = clock();
+#endif // FUNCTIONTIMETEST
+
+    BN_zero(zero);
+    BN_one(ans);
+    while(BN_cmp(_b, zero) > 0)
+    {
+        if(BN_is_odd(_b))
+        {
+            BN_mod_mul(ans, ans, _a, n, ctx);
+        }
+        BN_rshift1(_b, _b);
+        BN_mod_sqr(_a, _a, n, ctx);
+    }
+
+#ifdef FUNCTIONTIMETEST
+    endClock = clock();
+    int timecounter = endClock - startClock;
+    std::cout << "Mont Exp: " << timecounter << "ms" << std::endl;
+#endif // FUNCTIONTIMETEST
+
+    BN_free(_a);
+    BN_free(_b);
+    BN_free(zero);
+    BN_CTX_free(ctx);
+
+    return ans;
+}
+#endif // defined
+
 BIGNUM* ModExp(const BIGNUM *a, const BIGNUM *b, const BIGNUM *n)
 {
     BN_CTX *ctx = BN_CTX_new();
@@ -12,6 +56,11 @@ BIGNUM* ModExp(const BIGNUM *a, const BIGNUM *b, const BIGNUM *n)
     std::string b_hex = BN_bn2hex(b);
     std::string b_binary = bairuo::HexaToBinaryString(b_hex);
     int start = b_binary.length() - l;
+
+#ifdef FUNCTIONTIMETEST
+    clock_t startClock, endClock;
+    startClock = clock();
+#endif // FUNCTIONTIMETEST
 
     BN_one(z);
     for(unsigned int i = start; i < b_binary.length(); i++)
@@ -24,6 +73,17 @@ BIGNUM* ModExp(const BIGNUM *a, const BIGNUM *b, const BIGNUM *n)
     }
 
     BN_CTX_free(ctx);
+
+#ifdef FUNCTIONTIMETEST
+    endClock = clock();
+    int timecounter = endClock - startClock;
+#if defined(_WIN32)
+    std::cout << "Square-and-Multiply: " << timecounter << "ms" << std::endl;
+#else
+    std::cout << "Square-and-Multiply: " << timecounter << "us" << std::endl;
+#endif // defined
+#endif // FUNCTIONTIMETEST
+
     return z;
 }
 

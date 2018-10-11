@@ -9,11 +9,12 @@
 
 using namespace std;
 
-void Encrypt(string command)
+void Encrypt(const string &command)
 {
     // regular string
     regex plaintext_regex("-m\".*?\"");
     regex spnDic_regex("-spn-d\".*?\"");
+    regex rsaDic_regex("-rsa-d\".*?\"");
     regex inputFile_regex("-i\".*?\"");
     regex outputFile_regex("-o\".*?\"");
 
@@ -27,6 +28,7 @@ void Encrypt(string command)
 
 
     string spnDic = SPN::DefaultSpnPath;
+    string rsaDic = RSA::DefaultRsaPath;
     string inputFile;
     string outputFile;
     string plaintext;
@@ -73,6 +75,15 @@ void Encrypt(string command)
         spnDic = reg_smatch.str().substr(7, reg_smatch.str().length() - 8) + "\\";
 #else
         spnDic = reg_smatch.str().substr(7, reg_smatch.str().length() - 8) + "/";
+#endif
+    }
+    else if(regex_search(command, reg_smatch, rsaDic_regex))
+    {
+        algorithm = "rsa";
+#if defined(_WIN32)
+        rsaDic = reg_smatch.str().substr(7, reg_smatch.str().length() - 8) + "\\";
+#else
+        rsaDic = reg_smatch.str().substr(7, reg_smatch.str().length() - 8) + "/";
 #endif
     }
 
@@ -137,6 +148,7 @@ void Encrypt(string command)
             break;
         }
     }
+
     if(algorithm == "")
     {
         cout << "No algorithm, use -spn, -rsa, etc" << endl;
@@ -217,7 +229,62 @@ void Encrypt(string command)
     }
     else if(algorithm == "rsa")
     {
-        ciphertext = RSAEncrypt(plaintext);
+        /****** RSA Load ******/
+        try
+        {
+            RSA::Load(rsaDic);
+        }
+        catch(string message)
+        {
+            cout << message << "\n" << endl;
+            return;
+        }
+
+        for(int i = 0; i < num; i++)
+        {
+            /****** Encrypt ******/
+            if(inputFile_stream.is_open())
+            {
+                if(!(inputFile_stream >> plaintext))
+                {
+                    cout << "Can not read plaintext" << endl;
+                    cout << "Please check if there are enough plaintexts\n" << endl;
+                    return;
+                }
+            }
+
+            if(show)
+            {
+                cout << "Hexa of plaintext: " << bairuo::ToUpper(plaintext) << endl;
+            }
+
+            try
+            {
+                ciphertext = RSA::Encrypt(plaintext, detail);
+            }
+            catch(string message)
+            {
+                cout << message << "\n" << endl;
+                return;
+            }
+
+            /****** Result Show ******/
+
+            if(show)
+            {
+                cout << "Hexa of ciphertext: " << ciphertext << "\n" << endl;
+            }
+
+            if(outputFile_stream.is_open())
+            {
+                outputFile_stream << ciphertext << endl;
+            }
+        }
+
+        inputFile_stream.close();
+        outputFile_stream.close();
+
+        return;
     }
     else
     {

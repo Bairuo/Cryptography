@@ -31,8 +31,6 @@ void SPN::Load(const string &SpnDirectory)
 {
     ifstream configFile;
     ifstream keyFile;
-    ifstream SBoxFile;
-    ifstream PBoxFile;
 
     /****** Configuration Load ******/
     configFile.open(SpnDirectory + ConfigFileName);

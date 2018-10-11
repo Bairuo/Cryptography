@@ -1,9 +1,7 @@
+This tool can help generate a file with
+all 0 byte. Use -l to assign byte length
 Use generator command like
-[Gg]en -l=1024 -n=5 -p"output1.txt"
-[Gg]en -l=16 -n=8000 -p"output2.txt"
+[Gg]en -l=16 -p"file.data"
 
-Default parameter n = 1
-[Gg]en -l=16 -p"output3.txt"
-
-Default parameter p"output.txt"
+Default parameter p"file.data"
 [Gg]en -l=16

@@ -15,8 +15,8 @@ public:
     int tableLength;
 
     void Load(const std::string &path);
-    std::string OutPut(std::string input);
-    std::string InverseOutput(std::string input);
+    std::string OutPut(const std::string &input);
+    std::string InverseOutput(const std::string &input);
 
 private:
     std::map<unsigned int, unsigned int> table;

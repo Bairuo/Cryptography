@@ -61,16 +61,21 @@ void Generate(string command)
 #endif
     }
 
-
+    ofstream config;
     ofstream privateKey;
     ofstream publicKey;
+    config.open(rsaDic + "config");
     privateKey.open(rsaDic + "private.txt");
     publicKey.open(rsaDic + "public.txt");
-    if(!privateKey.is_open() || !publicKey.is_open())
+
+    if(!privateKey.is_open() || !publicKey.is_open() || !config.is_open())
     {
         cout << "Unknown error: File can not open" << "\n" << endl;
         return;
     }
+
+    config << length;
+    config.close();
 
     /****** parameter generator ******/
     BIGNUM *p = bairuo::genBigPrime(length);

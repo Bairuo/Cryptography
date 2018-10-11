@@ -1,3 +1,5 @@
+This tool can help generate a SPN PBox file
+which can be used by Cryptography Tool.
 Use generator command like
 [Gg]en -l=1024 -p"PBOX.txt"
 
